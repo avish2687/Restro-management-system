@@ -1,0 +1,51 @@
+-- -- Users Table
+-- CREATE TABLE users (
+--     id INT PRIMARY KEY AUTO_INCREMENT,
+--     name VARCHAR(100),
+--     email VARCHAR(100) UNIQUE,
+--     password VARCHAR(255),
+--     role ENUM('customer', 'admin') DEFAULT 'customer',
+--     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- );
+
+-- -- Restaurants Table
+-- CREATE TABLE restaurants (
+--     id INT PRIMARY KEY AUTO_INCREMENT,
+--     name VARCHAR(100),
+--     address TEXT,
+--     phone VARCHAR(20),
+--     opening_hours TEXT
+-- );
+
+-- -- Menu Items Table
+-- CREATE TABLE menu_items (
+--     id INT PRIMARY KEY AUTO_INCREMENT,
+--     restaurant_id INT,
+--     name VARCHAR(100),
+--     description TEXT,
+--     price DECIMAL(10,2),
+--     category VARCHAR(50),
+--     image_url VARCHAR(255),
+--     FOREIGN KEY (restaurant_id) REFERENCES restaurants(id)
+-- );
+
+-- -- Orders Table
+-- CREATE TABLE orders (
+--     id INT PRIMARY KEY AUTO_INCREMENT,
+--     user_id INT,
+--     total DECIMAL(10,2),
+--     status ENUM('pending', 'preparing', 'delivered', 'cancelled') DEFAULT 'pending',
+--     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+--     FOREIGN KEY (user_id) REFERENCES users(id)
+-- );
+
+-- -- Order Items Table
+-- CREATE TABLE order_items (
+--     order_id INT,
+--     menu_item_id INT,
+--     quantity INT,
+--     price DECIMAL(10,2),
+--     PRIMARY KEY (order_id, menu_item_id),
+--     FOREIGN KEY (order_id) REFERENCES orders(id),
+--     FOREIGN KEY (menu_item_id) REFERENCES menu_items(id)
+-- );
